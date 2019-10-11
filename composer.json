@@ -1,0 +1,25 @@
+{
+    "name": "hanoivip/game-contracts",
+    "description": "Game mod api",
+    "type": "library",
+    "require": {
+		"php" : ">=7.0.0",
+		"fideloper/proxy" : "~4.0",
+		"guzzlehttp/guzzle" : "^6.3",
+		"laravel/framework" : ">=5.5",
+		"laravel/tinker" : "~1.0",
+		"mervick/curl-helper" : "^1.1"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Hanoivip\\Game\\" : "src/"
+		}
+	},
+	"extra" : {
+		"laravel" : {
+			"providers" : [
+				"Hanoivip\\Game\\LibServiceProvider"
+			]
+		}
+	}
+}
