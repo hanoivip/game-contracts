@@ -64,4 +64,13 @@ interface IGameOperator
      * Does this operator support multiple of chars
      */
     public function supportMultiChar();
+    
+    /**
+     * Request open new order from game services
+     * @param Authenticatable $user
+     * @param Server $server
+     * @param Recharge|string $package
+     * @param array $params
+     */
+    public function order($user, $server, $package, $params = null);
 }
