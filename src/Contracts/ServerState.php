@@ -1,6 +1,6 @@
 <?php
 
-namespace Hanoivip\Game\Contracts;
+namespace Hanoivip\GameContracts\Contracts;
 
 interface ServerState
 {

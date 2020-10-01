@@ -1,76 +1,88 @@
 <?php
+namespace Hanoivip\GameContracts\Contracts;
 
-namespace Hanoivip\Game\Contracts;
-
-use Illuminate\Contracts\Auth\Authenticatable;
-use Hanoivip\Game\Server;
-use Hanoivip\Game\Recharge;
+use Hanoivip\GameContracts\ViewOjects\RechargeVO;
+use Hanoivip\GameContracts\ViewOjects\ServerVO;
+use Hanoivip\GameContracts\ViewOjects\UserVO;
 
 interface IGameOperator
 {
+
     /**
-     * 
-     * @param Authenticatable $user
-     * @param Server $server
+     *
+     * @param UserVO $user
+     * @param ServerVO $server
      */
     public function enter($user, $server);
-    
+
     /**
      * Recharge with pre-defined package
-     * 
-     * @param Authenticatable $user
-     * @param Server $server
-     * @param string $order Order ID, Mapping id
-     * @param Recharge $package
+     *
+     * @param UserVO $user
+     * @param ServerVO $server
+     * @param string $order
+     *            Order ID, Mapping id
+     * @param RechargeVO $package
      * @param array $params
      * @return boolean
      */
     public function recharge($user, $server, $order, $package, $params = null);
-    
+
     /**
-     * 
-     * @param Server $server
+     *
+     * @param ServerVO $server
      * @return number
      */
     public function online($server);
-    
+
     /**
-     * 
-     * @param Server $server
+     *
+     * @param ServerVO $server
      * @return array
      */
     public function rank($server);
-    
+
     /**
-     * 
-     * @param Authenticatable $user
-     * @param Server $server
+     *
+     * @param UserVO $user
+     * @param ServerVO $server
      * @param string $order
+     *            Mapping ID
      * @param number $itemId
      * @param number $itemCount
      * @param array $params
      */
     public function sentItem($user, $server, $order, $itemId, $itemCount, $params = null);
-    
+
     /**
      * List all of game character in a server
-     * 
-     * @param Authenticatable $user
-     * @param Server $server
+     *
+     * @param UserVO $user
+     * @param ServerVO $server
      */
     public function characters($user, $server);
-    
+
     /**
      * Does this operator support multiple of chars
      */
     public function supportMultiChar();
-    
+
     /**
      * Request open new order from game services
-     * @param Authenticatable $user
-     * @param Server $server
-     * @param Recharge|string $package
+     *
+     * @param UserVO $user
+     * @param ServerVO $server
+     * @param RechargeVO|string $package
      * @param array $params
      */
     public function order($user, $server, $package, $params = null);
+
+/**
+ * Notify order paid
+ *
+ * @param Authenticatable|number $user
+ * @param string $order
+ *            Game order
+ */
+    // public function orderNotify($user, $order);
 }
