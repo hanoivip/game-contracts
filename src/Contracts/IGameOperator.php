@@ -85,4 +85,14 @@ interface IGameOperator
  *            Game order
  */
     // public function orderNotify($user, $order);
+    
+    /**
+     * Player exchange/use code on target server..
+     * @param UserVO $user
+     * @param ServerVO $server
+     * @param string $code
+     * @param array $params
+     * @return number|TRUE true if success, number error if fail
+     */
+    public function useCode($user, $server, $code, $params);
 }

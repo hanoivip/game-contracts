@@ -1,11 +1,11 @@
 <?php
 
-namespace Hanoivip\GameContracts\ViewOjects;
+namespace Hanoivip\GameContracts\ViewObjects;
 
 class UserVO
 {
-    public $id;
-    public $name;
+    private $id;
+    private $name;
     public function __construct($id, $name)
     {
         $this->id = $id;

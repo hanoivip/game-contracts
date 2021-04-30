@@ -1,6 +1,6 @@
 <?php
 
-namespace Hanoivip\GameContracts\ViewOjects;
+namespace Hanoivip\GameContracts\ViewObjects;
 
 
 class RechargeVO
