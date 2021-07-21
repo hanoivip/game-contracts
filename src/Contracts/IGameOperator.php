@@ -1,9 +1,9 @@
 <?php
 namespace Hanoivip\GameContracts\Contracts;
 
-use Hanoivip\GameContracts\ViewOjects\RechargeVO;
-use Hanoivip\GameContracts\ViewOjects\ServerVO;
-use Hanoivip\GameContracts\ViewOjects\UserVO;
+use Hanoivip\GameContracts\ViewObjects\RechargeVO;
+use Hanoivip\GameContracts\ViewObjects\ServerVO;
+use Hanoivip\GameContracts\ViewObjects\UserVO;
 
 interface IGameOperator
 {
