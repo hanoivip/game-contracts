@@ -71,7 +71,7 @@ interface IGameOperator
      * Request open new order from game services
      *
      * @param UserVO $user
-     * @param ServerVO $server
+     * @param ServerVO|string $server
      * @param RechargeVO|string $package
      * @param array $params
      */
