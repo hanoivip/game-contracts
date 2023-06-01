@@ -38,9 +38,10 @@ interface IGameOperator
     /**
      *
      * @param ServerVO $server
+     * @param mixed Rank type, number, string..
      * @return array
      */
-    public function rank($server);
+    public function rank($server, $type);
 
     /**
      *
