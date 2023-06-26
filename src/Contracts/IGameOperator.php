@@ -7,14 +7,6 @@ use Hanoivip\GameContracts\ViewObjects\UserVO;
 
 interface IGameOperator
 {
-
-    /**
-     *
-     * @param UserVO $user
-     * @param ServerVO $server
-     */
-    public function enter($user, $server);
-
     /**
      * Recharge with pre-defined package
      *
@@ -64,11 +56,6 @@ interface IGameOperator
     public function characters($user, $server);
 
     /**
-     * Does this operator support multiple of chars
-     */
-    public function supportMultiChar();
-
-    /**
      * Request open new order from game services
      *
      * @param UserVO $user
@@ -96,4 +83,12 @@ interface IGameOperator
      * @return number|TRUE true if success, number error if fail
      */
     public function useCode($user, $server, $code, $params);
+    
+    /**
+     * Broadcast message to server
+     * @param ServerVO $server
+     * @param string $message
+     * @return boolean
+     */
+    public function broadcast($server, $message);
 }
