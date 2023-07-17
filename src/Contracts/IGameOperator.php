@@ -91,4 +91,15 @@ interface IGameOperator
      * @return boolean
      */
     public function broadcast($server, $message);
+    
+    /**
+     * Transfer account from user to user
+     * UC:
+     * - Admin temporary access account
+     * - Sell old account
+     * - ...
+     * @param unknown $oldId
+     * @param unknown $newId
+     */
+    public function transfer($oldId, $newId);
 }
