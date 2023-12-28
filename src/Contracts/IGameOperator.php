@@ -1,24 +1,35 @@
 <?php
 namespace Hanoivip\GameContracts\Contracts;
 
-use Hanoivip\GameContracts\ViewObjects\RechargeVO;
 use Hanoivip\GameContracts\ViewObjects\ServerVO;
 use Hanoivip\GameContracts\ViewObjects\UserVO;
 
 interface IGameOperator
 {
     /**
-     * Recharge with pre-defined package
+     * Buy game items with pre-defined package
      *
      * @param UserVO $user
      * @param ServerVO $server
      * @param string $order
      *            Order ID, Mapping id
-     * @param RechargeVO $package
-     * @param array $params
+     * @param string $package Recharge package code
+     * @param string $role Receveing role id
      * @return boolean
      */
-    public function recharge($user, $server, $order, $package, $params = null);
+    public function buyPackage($user, $server, $order, $package, $role);
+    /**
+     * Buy game money (diamond/KNB..) with a mount of money
+     *
+     * @param UserVO $user
+     * @param ServerVO $server
+     * @param string $order
+     *            Order ID, Mapping id
+     * @param string $package Recharge package code
+     * @param string $role
+     * @return boolean
+     */
+    public function buyByMoney($user, $server, $order, $amount, $role);
 
     /**
      *
@@ -45,7 +56,7 @@ interface IGameOperator
      * @param number $itemCount
      * @param array $params
      */
-    public function sentItem($user, $server, $order, $itemId, $itemCount, $params = null);
+    public function sentItem($user, $server, $order, $itemId, $itemCount, $role);
 
     /**
      * List all of game character in a server
@@ -60,10 +71,10 @@ interface IGameOperator
      *
      * @param UserVO $user
      * @param ServerVO|string $server
-     * @param RechargeVO|string $package
+     * @param string $package Recharge package code
      * @param array $params
      */
-    public function order($user, $server, $package, $params = null);
+    public function order($user, $server, $package, $role);
 
 /**
  * Notify order paid
@@ -82,7 +93,7 @@ interface IGameOperator
      * @param array $params
      * @return number|TRUE true if success, number error if fail
      */
-    public function useCode($user, $server, $code, $params);
+    public function useCode($user, $server, $code, $role);
     
     /**
      * Broadcast message to server
@@ -98,8 +109,8 @@ interface IGameOperator
      * - Admin temporary access account
      * - Sell old account
      * - ...
-     * @param unknown $oldId
-     * @param unknown $newId
+     * @param number $oldId
+     * @param number $newId
      */
     public function transfer($oldId, $newId);
 }
