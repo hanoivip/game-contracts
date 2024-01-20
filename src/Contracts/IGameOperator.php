@@ -76,14 +76,13 @@ interface IGameOperator
      */
     public function order($user, $server, $package, $role);
 
-/**
- * Notify order paid
- *
- * @param Authenticatable|number $user
- * @param string $order
- *            Game order
- */
-    // public function orderNotify($user, $order);
+    /**
+     * Notify game about an order get paid
+     *
+     * @param UserVO $user
+     * @param string $order Game order
+     */
+    public function orderNotify($user, $order);
     
     /**
      * Player exchange/use code on target server..
