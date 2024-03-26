@@ -1,9 +1,15 @@
 <?php
 namespace Hanoivip\GameContracts\Contracts;
 
+use Hanoivip\GameContracts\ViewObjects\OrderVO;
 use Hanoivip\GameContracts\ViewObjects\ServerVO;
 use Hanoivip\GameContracts\ViewObjects\UserVO;
 
+/**
+ * Aware: fat interface
+ * @author GameOH
+ *
+ */
 interface IGameOperator
 {
     /**
@@ -54,7 +60,7 @@ interface IGameOperator
      *            Mapping ID
      * @param number $itemId
      * @param number $itemCount
-     * @param array $params
+     * @param string $role
      */
     public function sentItem($user, $server, $order, $itemId, $itemCount, $role);
 
@@ -72,7 +78,7 @@ interface IGameOperator
      * @param UserVO $user
      * @param ServerVO|string $server
      * @param string $package Recharge package code
-     * @param array $params
+     * @param string $role
      */
     public function order($user, $server, $package, $role);
 
@@ -85,11 +91,20 @@ interface IGameOperator
     public function orderNotify($user, $order);
     
     /**
+     * Get order detail: items, owner info...
+     * 
+     * @param UserVO $user
+     * @param string $order
+     * @return OrderVO
+     */
+    public function orderDetail($user, $order);
+    
+    /**
      * Player exchange/use code on target server..
      * @param UserVO $user
      * @param ServerVO $server
      * @param string $code
-     * @param array $params
+     * @param string $role
      * @return number|TRUE true if success, number error if fail
      */
     public function useCode($user, $server, $code, $role);
