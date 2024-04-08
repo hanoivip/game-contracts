@@ -94,10 +94,11 @@ interface IGameOperator
      * Get order detail: items, owner info...
      * 
      * @param UserVO $user
+     * @param ServerVO $server
      * @param string $order
      * @return OrderVO
      */
-    public function orderDetail($user, $order);
+    public function orderDetail($user, $server, $order);
     
     /**
      * Player exchange/use code on target server..
